@@ -46,15 +46,21 @@ h1 = []
 
 h1 = heap_min_insert(h1, 6)
 
-# draw_tree(h1)
+draw_tree(h1)
+
+#%%
 
 h1 = heap_min_insert(h1, 4)
 
-# draw_tree(h1)
+draw_tree(h1)
+
+#%%
 
 h1 = heap_min_insert(h1, 3)
 
-# draw_tree(h1)
+draw_tree(h1)
+
+#%%
 
 h1 = heap_min_insert(h1, 2)
 
@@ -106,12 +112,27 @@ def heapify_down(heap, index):
         heapify_down(heap, smallest_index)
 
 
-
+#%%
 # Delete the root (min element)
 min_value = heap_min_delete(h2)
-
-# Draw the heap after deletion
 draw_tree(h2)
+
+#%%
+heap_min_delete(h2)
+draw_tree(h2)
+
+#%%
+heap_min_delete(h2)
+draw_tree(h2)
+
+#%%
+heap_min_delete(h2)
+draw_tree(h2)
+
+#%%
+heap_min_delete(h2)
+draw_tree(h2)
+
 # %% Object Oriented Version
 
 from abc import ABC, abstractmethod
