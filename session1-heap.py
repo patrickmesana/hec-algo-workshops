@@ -169,6 +169,7 @@ class Heap(ABC):
         Returns True if parent should be swapped with the child."""
         pass
 
+
     def _heapify_up(self, index):
         """Restore the heap property by heapifying up."""
         parent_index = (index - 1) // 2
@@ -221,10 +222,19 @@ class MinHeap(Heap):
     def compare(self, parent, child):
         """In a min-heap, the parent must be smaller than the child. Return True if a swap is needed."""
         return parent > child
+
+    
+class MaxHeap(Heap):
+    def compare(self, parent, child):
+        """In a min-heap, the parent must be smaller than the child. Return True if a swap is needed."""
+        return parent < child
+    
+class DummyHeap(Heap):
+    pass
     
 # Example usage of the MinHeap class
 
-heap = MinHeap()
+heap = MaxHeap()
 
 # Insert elements into the heap
 heap.insert(6)
@@ -241,4 +251,12 @@ min_element = heap.delete_root()
 
 # Draw the heap after deletion
 heap.draw()
+
+#%%
+print(heap)
+# %%
+
+heap = Heap()
+
+
 # %%

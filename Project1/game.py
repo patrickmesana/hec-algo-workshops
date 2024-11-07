@@ -99,7 +99,6 @@ class Game:
 
 # Example generator for programmatically playing the game
 def moves_generator(moves):
-
     for move in moves:
         yield move
 
@@ -115,10 +114,12 @@ def input_generator(game):
         except StopIteration:
             break
 
-if __name__ == "__main__":
+
+
+def run_synthetic_game():
     # Initialize and play the game programmatically
     game = Game(num_elements=10, visible_elements=4, max_unload=2, elements=[5, 1, 5, 5, 4, 4, 1, 4, 2, 1], show_hidden=True)
-    game.play(moves_generator=moves_generator([0, 1, 2, 3, -1]))
+    game.play(moves_generator=moves_generator([0, 1, 2, 3, 1]))
     # game.play(moves_generator=input_generator(game))
     game.display_elements()
 
@@ -134,4 +135,27 @@ if __name__ == "__main__":
 
     else:
         print("Invalid game state!")
+
+def run_play():
+
+    game = Game(num_elements=10, visible_elements=4, max_unload=2)
+    game.play(input_generator(game))
+
+    #if game over, print the total moves
+    if game.game_state == 'game_over':
+        print(f"Game over! Total moves: {game.moves_counter}")
+
+
+
+if __name__ == "__main__":
+
+    import sys
+    if len(sys.argv) == 1:
+        run_play()
+    elif sys.argv[1] == "play":
+        run_play()
+    elif sys.argv[1] == "synthetic":
+        run_synthetic_game()
+    else:
+        print("Invalid argument. Please use 'play' or 'synthetic' as arguments.")
 
