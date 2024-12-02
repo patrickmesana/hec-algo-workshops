@@ -18,7 +18,7 @@ class Game:
         self.game_state = "ongoing"  # Game state can be 'ongoing', 'game_over', or 'quit'
         # Initialize the game with provided elements or random elements represented by integers (categories)
         if elements is None:
-            self.elements = [Element(random.randint(1, 5)) for _ in range(num_elements)]
+            self.elements = [Element(random.randint(1, 100)) for _ in range(num_elements)]
         else:
             self.elements = [Element(category) for category in elements]
 
@@ -138,7 +138,7 @@ def run_synthetic_game():
 
 def run_play():
 
-    game = Game(num_elements=10, visible_elements=4, max_unload=2)
+    game = Game(num_elements=10, visible_elements=4, max_unload=2, show_hidden=True)
     game.play(input_generator(game))
 
     #if game over, print the total moves
